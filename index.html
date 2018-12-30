@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Squiggle Software</title>
+  <link rel="canonical" href="https://squigglesoft.com">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script>
+    function setEmoji(n) {
+      var element = document.getElementById('range' + n);
+      var value = element.value;
+      for (i = 0; i < 5; i++) {
+        element.classList.remove("slider-" + i);
+      }
+      element.classList.add("slider-" + value);
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:active {
+      color: white;
+    }
+    grid {
+      display: grid;
+      height: 100vh;
+      max-height: 75vw;
+      grid-gap: 5px;
+      grid-template-areas:
+        "expertise-1 expertise-1 expertise-1 about profile-1"
+        "expertise-2 expertise-2 expertise-3 about profile-2"
+        "header header header header header"
+        "project-1 project-1 project-1 project-3 project-3"
+        "project-2 project-2 project-2 project-4 project-4";
+      grid-template-rows: 1fr 1fr 50px repeat(2, 0.5fr);
+      grid-template-columns: 150px 0.5fr 1fr 1.5fr 150px;
+    }
+    grid header, grid project, grid expertise {
+      padding: 5px;
+    }
+    grid header {
+      padding-left: 20px;
+    }
+    project {
+      background-color: gold;
+      display: flex;
+      align-items: center;
+    }
+    project description {
+      flex-grow: 1;
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    expertise {
+      background-color: indianred;
+    }
+    profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: lightpink;
+      color: white;
+    }
+    expertise {
+      color: white;
+    }
+    technologies {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+    technologies svg {
+      margin: 10px;
+    }
+    header {
+      display: flex;
+      background: linear-gradient(135deg, #cb60b3 0%,#ad1283 1%,#de47ac 100%);
+      color: white;
+      grid-area: header;
+      align-items: center;
+    }
+    .iv-header {
+      padding: 125px 5px 20px;
+      margin: -5px;
+      text-align: right;
+    }
+    .development-header {
+      text-align: right;
+    }
+    .logo {
+      padding: 5px;
+      cursor: pointer;
+    }
+    profile:nth-of-type(1) {
+      grid-area: profile-1;
+    }
+    profile:nth-of-type(2) {
+      grid-area: profile-2;
+    }
+    about {
+      grid-area: about;
+    }
+    project:nth-of-type(1) {
+      grid-area: project-1;
+    }
+    project:nth-of-type(2) {
+      grid-area: project-2;
+    }
+    project:nth-of-type(3) {
+      grid-area: project-3;
+    }
+    project:nth-of-type(4) {
+      grid-area: project-4;
+    }
+    expertise:nth-of-type(1) {
+      grid-area: expertise-1;
+    }
+    expertise:nth-of-type(2) {
+      grid-area: expertise-2;
+    }
+    expertise:nth-of-type(3) {
+      grid-area: expertise-3;
+    }
+    .emoji-sliders {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .sliders {
+      background-color: white;
+      border: 2px solid black;
+      padding: 5px;
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-block;
+    }
+    .slider {
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      margin: 10px;
+      width: 150px;
+      height: 3px;
+      background: lightgray;
+      outline: none;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+    }
+    .slider.slider-0::-webkit-slider-thumb {
+      background-image: url('img/emoji-nooo.png');
+    }
+    .slider.slider-1::-webkit-slider-thumb {
+      background-image: url('img/emoji-bad.png');
+    }
+    .slider.slider-2::-webkit-slider-thumb {
+      background-image: url('img/emoji-neutral.png');
+    }
+    .slider.slider-3::-webkit-slider-thumb {
+      background-image: url('img/emoji-happy.png');
+    }
+    .slider.slider-4::-webkit-slider-thumb {
+      background-image: url('img/emoji-yay.png');
+    }
+    @media(max-width: 820px) {
+      grid {
+        grid-template-areas:
+          "expertise-1 expertise-1"
+          "expertise-3 expertise-3"
+          "expertise-2 expertise-2"
+          "about       profile-1"
+          "about       profile-2"
+          "header      header"
+          "project-1   project-1"
+          "project-2   project-2"
+          "project-3   project-3"
+          "project-4   project-4";
+        height: auto;
+        grid-template-rows: repeat(5, auto) 50px repeat(4, 100px);
+        grid-template-columns: 2fr 1fr;
+      }
+      .iv-header {
+        padding: 90px 5px 20px;
+      }
+      technologies svg {
+        margin: 6px;
+      }
+      profile svg {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 6px;
+      }
+    }
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+  <grid>
+    <about style="background: url(https://secure.gravatar.com/avatar/4145335d04c1f2f4a25576ad96eefebf?size=800) center no-repeat; background-size: cover"></about>
+    <profile onclick="window.location.href='https://www.linkedin.com/in/lisa-storey-91b03122/'">
+      <i class="fab fa-linkedin fa-8x"></i>
+    </profile>
+    <profile onclick="window.location.href='https://github.com/lstorey'">
+      <i class="fab fa-github fa-8x"></i>
+    </profile>
+    <expertise>
+      <technologies>
+        <i class="fab fa-js-square fa-5x"></i>
+        <i class="fab fa-react fa-5x"></i>
+        <i class="fab fa-node-js fa-5x"></i>
+        <i class="fab fa-npm fa-5x"></i>
+      </technologies>
+      <h2 class="development-header">webapp_development</h2>
+    </expertise>
+    <expertise>
+      <h2>user_research</h2>
+      <div class="emoji-sliders">
+        <div class="sliders">
+          <div class="emoji-slider">
+            <input type="range" min="0" max="4" value="2" class="slider slider-2" id="range1" oninput="setEmoji(1)" />
+          </div>
+          <div class="emoji-slider">
+            <input type="range" min="0" max="4" value="3" class="slider slider-3" id="range2" oninput="setEmoji(2)" />
+          </div>
+          <div class="emoji-slider">
+            <input type="range" min="0" max="4" value="1" class="slider slider-1" id="range3" oninput="setEmoji(3)" />
+          </div>
+        </div>
+      </div>
+    </expertise>
+    <expertise style="background: url('img/interview.png') center no-repeat; background-size: cover">
+      <h2 class="iv-header">technical_interviewing</h2>
+    </expertise>
+    <header>
+      <h1>my.projects()</h1>
+    </header>
+    <project>
+      <description>
+        I develop and maintain Marble's command center for delivery robots.
+      </description>
+      <img class="logo" src="img/marble.png" width="125px" height="25px" onclick="window.location.href='https://www.marble.io'"/>
+    </project>
+    <project>
+      <description>
+        I advise Loopla's engineering team.
+      </description>
+      <img class="logo" src="img/loopla.png" width="110px" height="25px" onclick="window.location.href='https://www.loopla.com'" />
+    </project>
+    <project>
+      <description>
+        I implemented a redesign and React migration of ViaHero's web app.
+      </description>
+      <img class="logo" src="img/viahero.svg" width="125px" height="25px" onclick="window.location.href='https://www.viahero.com'" />
+    </project>
+    <project>
+      <description>
+        I conduct technical interviews for Karat.
+      </description>
+      <img class="logo" src="img/karat.png" width="100px" height="25px" onclick="window.location.href='https://karat.io'" />
+    </project>
+  </div>
+</body>
+
+</html>
